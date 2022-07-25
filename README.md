@@ -1,6 +1,5 @@
 # StrideTestnetTurkish
 
-![image](https://www.hizliresim.com/aihfkug)
 # Kurulum:
 
 ```
