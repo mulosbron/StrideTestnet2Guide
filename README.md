@@ -1,6 +1,6 @@
 # StrideTestnetTurkish
 
-![image](https://twitter.com/swiss_staking/status/1550148021606060032/photo/1)
+![image](https://www.hizliresim.com/aihfkug)
 # Kurulum:
 
 ```
