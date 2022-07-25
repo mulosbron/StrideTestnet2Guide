@@ -1,19 +1,26 @@
-# StrideTestnetTurkish
-
 # Kurulum:
-
+Kaynak: https://api.rues.info/
 ```
 wget -q -O stride.sh https://api.rues.info/stride.sh && chmod +x stride.sh && sudo /bin/bash stride.sh
 ```
 
-# Cüzdan oluşturma:
+# Cüzdan Oluşturma
+Not: Mnemonic'i kaydedin.
 ```
 strided keys add CUZDANADI
 ```
 
-# Discordan test tokeni alma: https://discord.gg/4B4cbvCh
+# Test Tokeni Alma: https://discord.gg/98jCNJRP6S
+discord-->stride-->poolparty-testnet-->token-faucet
 
-# Validator oluşturma:
+
+# Validatorün Durumunu Kontrol Etme
+NOT: Validator oluşturmadan önce çıktının true yerine false olmasına dikkat edin.
+```
+strided status 2>&1 | jq .SyncInfo
+```
+
+# Validator Oluşturma
 ```
 strided tx staking create-validator \
 --amount=9900000ustrd \
@@ -27,11 +34,26 @@ strided tx staking create-validator \
 --fees=250ustrd \
 --gas=200000 \
 --from=CUZDANADI \
---website="www.WEBSITENIZ.com" \
+--website="" \
 --details="KENDINIZITANITIN" \
 -y
 ```
 
-# Explorer kontrol: https://stride.explorers.guru/validator/stridevaloper1vm6wnmvxugqj8k6s6d2cktgctc550qaq53jyus
-
-# Discorddan role-requestten rol de alabılırsınız.
+# Ek Komutlar
+Logları Görüntüleme
+```
+journalctl -fu strided -o cat
+```
+Jailden Çıkma
+```
+strided tx slashing unjail --from=CUZDANADI --chain-id=STRIDE-1 --gas-prices=0.025ustrd -y
+```
+Cüzdanı Recover Etme
+```
+strided keys add CUZDANADI --recover
+```
+Cüzdan Listesi
+```
+strided keys list
+```
+# Stride Explorer: https://stride.explorers.guru/
