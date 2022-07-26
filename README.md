@@ -1,24 +1,23 @@
-# Kurulum:
-Kaynak: https://api.rues.info/
+# Kurulum
 ```
 wget -q -O stride.sh https://api.rues.info/stride.sh && chmod +x stride.sh && sudo /bin/bash stride.sh
 ```
+Kaynak: https://api.rues.info/
 
 # Cüzdan Oluşturma
-Not: Mnemonic'i kaydedin.
 ```
 strided keys add CUZDANADI
 ```
+Not: Mnemonic'i kaydedin.
 
 # Test Tokeni Alma: https://discord.gg/98jCNJRP6S
 discord-->stride-->poolparty-testnet-->token-faucet
 
-
-# Validatorün Durumunu Kontrol Etme
-NOT: Validator oluşturmadan önce çıktının true yerine false olmasına dikkat edin.
+# Sync Kontrol Etme
 ```
 strided status 2>&1 | jq .SyncInfo
 ```
+NOT: Validator oluşturmadan önce çıktının true yerine false olmasına dikkat edin.
 
 # Validator Oluşturma
 ```
