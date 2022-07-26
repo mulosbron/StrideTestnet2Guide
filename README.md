@@ -1,8 +1,9 @@
-# Kurulum
+# Installation
 ```
 wget -q -O stride.sh https://api.rues.info/stride.sh && chmod +x stride.sh && sudo /bin/bash stride.sh
 ```
-Kaynak: https://api.rues.info/
+
+Source: https://api.rues.info/
 
 # Cüzdan Oluşturma
 ```
