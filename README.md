@@ -38,7 +38,7 @@ strided tx staking create-validator \
 --gas=200000 \
 --from=WALLETNAME \
 --website="https://github.com/mulosbron" \
---details="" \
+--details="GUIDE: https://github.com/mulosbron/StrideTestnetGuide" \
 -y
 ```
 
