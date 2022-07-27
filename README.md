@@ -1,59 +1,62 @@
+![FYM05YzWAAA_7Sh](https://user-images.githubusercontent.com/91866065/181212921-f977d005-1800-4531-a17f-9a2052d0b729.jpg)
 # Installation
 ```
 wget -q -O stride.sh https://api.rues.info/stride.sh && chmod +x stride.sh && sudo /bin/bash stride.sh
 ```
+![whitenigga2](https://user-images.githubusercontent.com/91866065/181213969-c5edace4-a264-48b8-a0ee-6e30750eb043.png)
 
 Source: https://api.rues.info/
 
-# Cüzdan Oluşturma
+# Create Wallet
 ```
-strided keys add CUZDANADI
+strided keys add WALLETNAME
 ```
-Not: Mnemonic'i kaydedin.
+* Save the Mnemonic
 
-# Test Tokeni Alma: https://discord.gg/98jCNJRP6S
-discord-->stride-->poolparty-testnet-->token-faucet
+# Token Faucet: https://discord.gg/98jCNJRP6S
+* Discord-->Stride-->Poolparty-testnet-->Token-faucet
 
-# Sync Kontrol Etme
+# Sync
 ```
 strided status 2>&1 | jq .SyncInfo
 ```
-NOT: Validator oluşturmadan önce çıktının true yerine false olmasına dikkat edin.
+![github](https://user-images.githubusercontent.com/91866065/181214050-5667ff79-7227-41fd-b80a-cd1114f9b98a.png)
+* "catching_up" must be false for creating validator
 
-# Validator Oluşturma
+# Creating Validator
 ```
 strided tx staking create-validator \
 --amount=9900000ustrd \
 --pubkey=$(strided tendermint show-validator) \
---moniker=VALIDATORISMI \
---chain-id=STRIDE-1 \
+--moniker=MONIKERNAME \
+--chain-id=STRIDE-TESTNET-2 \
 --commission-rate="0.10" \
 --commission-max-rate="0.20" \
 --commission-max-change-rate="0.1" \
 --min-self-delegation="1" \
 --fees=250ustrd \
 --gas=200000 \
---from=CUZDANADI \
---website="" \
---details="KENDINIZITANITIN" \
+--from=WALLETNAME \
+--website="https://github.com/mulosbron" \
+--details="" \
 -y
 ```
 
-# Ek Komutlar
-Logları Görüntüleme
+# Commands
+Logs
 ```
 journalctl -fu strided -o cat
 ```
-Jailden Çıkma
+Unjail
 ```
-strided tx slashing unjail --from=CUZDANADI --chain-id=STRIDE-1 --gas-prices=0.025ustrd -y
+strided tx slashing unjail --from=WALLETNAME --chain-id=STRIDE-TESTNET-2 --gas-prices=0.025ustrd -y
 ```
-Cüzdanı Recover Etme
+Recover Wallet
 ```
-strided keys add CUZDANADI --recover
+strided keys add WALLETNAME --recover
 ```
-Cüzdan Listesi
+Wallet List
 ```
 strided keys list
 ```
-# Stride Explorer: https://stride.explorers.guru/
+# Stride Explorer: https://stride.explorers.guru
